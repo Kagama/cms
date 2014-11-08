@@ -1,0 +1,44 @@
+/* Reset */
+body, html,
+h1, h2, h3, h4, h5, h6,
+p, blockquote,
+input, textarea, select {
+	margin: 0px;
+	padding: 0px;
+	font-size: 100%;
+	border: 0;
+}
+
+ol {
+
+	margin: 0px; padding: 0px;
+}
+
+ul, li {
+
+	margin: 0px; padding: 0px;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	border: 0;
+}
+
+body, html {min-width: 1024px;}
+
+* {outline: none; z-index: 5;}
+
+a,
+a:visited,
+a:hover,
+a:active {
+	text-decoration: none; 
+	margin: 0px; 
+	padding: 0px;
+}
+
+h1 {
+}
+
+/*********************************************************************************/
