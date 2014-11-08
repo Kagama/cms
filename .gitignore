@@ -30,7 +30,7 @@ Thumbs.db
 /images
 /files
 /cache
-
+/uploads
 
 # composer itself is not needed
 composer.phar
