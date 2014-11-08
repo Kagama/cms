@@ -22,9 +22,9 @@ Thumbs.db
 /frontend/web/assest
 /backend/web/assest
 
+# runtime dirs
 /backend/runtime
 /frontend/runtime
-
 
 # image files cache
 /images
