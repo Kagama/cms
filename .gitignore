@@ -1,6 +1,14 @@
 # yii console command
 /yii
 
+requirements.*
+init.bat
+init
+yii
+yii.bat
+
+
+
 # phpstorm project files
 .idea
 
@@ -42,3 +50,5 @@ composer.phar
 phpunit.phar
 # local phpunit config
 /phpunit.xml
+
+
