@@ -62,6 +62,7 @@ if (!empty($user) && $user->role->id == 1) {
     <?= Breadcrumbs::widget([
         'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [""],
     ]) ?>
+    
     <?= Alert::widget() ?>
     <?= $content ?>
     
