@@ -18,16 +18,18 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/style.css',
+        'css/main.css',
         'css/fancySelect.css'
     ];
     public $js = [
-        'js/jquery.MultiFile.js',
-        'js/fancySelect.js',
-        'js/FileUpload/jquery.ui.widget.js',
-        'js/FileUpload/jquery.iframe-transport.js',
-        'js/FileUpload/jquery.fileupload.js',
+//        'js/jquery.MultiFile.js',
+//        'js/fancySelect.js',
+//        'js/FileUpload/jquery.ui.widget.js',
+//        'js/FileUpload/jquery.iframe-transport.js',
+//        'js/FileUpload/jquery.fileupload.js',
+//        'js/libs.js',
         'js/scripts.js',
+
 
 
 //        'js/ajaxFormSubmit.js'

@@ -14,8 +14,9 @@ class BaseAsset extends AssetBundle {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/lightblue/application.min.css',
         'css/site.css',
+        'css/lightblue/application.min.css',
+
     ];
     public $js = [
         'lib/lightblue/jquery/jquery-2.0.3.min.js',

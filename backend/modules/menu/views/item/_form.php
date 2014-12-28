@@ -19,6 +19,7 @@ use yii\widgets\ActiveForm;
 
                     <?= $form->errorSummary([$model]); ?>
                     <?= $form->field($model, 'name')->textInput(['maxlength' => 512]) ?>
+                    <?= $form->field($model, 'url')->textInput(['maxlength' => 512]) ?>
 
                     <div class="row">
                         <div class="col-lg-4">

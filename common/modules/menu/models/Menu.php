@@ -92,7 +92,9 @@ class Menu extends \yii\db\ActiveRecord
             } else {
                 $path = "/";
             }
-            $this->url = $path;
+
+            if ($this->url == "")
+                $this->url = $path;
 
             return true;
         }

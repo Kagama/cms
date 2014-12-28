@@ -1,30 +1,9 @@
 $(document).ready(function () {
 
-    $('.active-edit-block .edit-action-icon').fancybox({
-        //maxWidth	: 800,
-        //maxHeight	: 600,
-        type: 'iframe',
-        fitToView: false ,
-        width: '80%',
-        height: '70%',
-        autoSize: true,
-        closeClick: false,
-        openEffect: 'none',
-        closeEffect: 'none',
-        afterClose : function() {
-            location.reload();
-            return;
-        },
-        padding     : 0,
-        margin      : [20, 60, 20, 60]
+    if ($(document).has('.active-edit-block .edit-action-icon')) {
 
-        //helpers : {
-        //    overlay: {
-        //        opacity: 0.8, // or the opacity you want
-        //        css: {'background-color': '#ff0000'} // or your preferred hex color value
-        //    } // overlay
-        //} // helpers
-    });
+    }
+
 });
 
 
