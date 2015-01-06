@@ -24,7 +24,7 @@ class PostModule extends myModule
 
         $url = "";
         foreach ($menuArr as $menu) {
-            $url .= (empty($url) ? "" : "|" ).$menu->alt_name;
+            $url .= (empty($url) ? "" : "|" ).$menu->url;
         }
         $ruleArr = [
             '<menu_alt_name:('.($url == "" ? "post" : $url).')>' => 'post/default/all',

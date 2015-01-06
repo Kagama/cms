@@ -1,6 +1,5 @@
 <?php
 use yii\helpers\Html;
-use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use frontend\widgets\Alert;
 
@@ -24,6 +23,10 @@ if (!empty($user) && $user->role->id == 1) {
     <meta charset="<?= Yii::$app->charset ?>"/>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/no-queries-ie-8.css">
+    <![endif]-->
 
 
     <?php
@@ -53,10 +56,62 @@ if (!empty($user) && $user->role->id == 1) {
 
 
     <?php
+    $menu = \common\modules\menu\models\Menu::find()->where(['group_id' => 1])->all();
+
     if (Yii::$app->controller->uniqueId == "main/default" && Yii::$app->controller->action->id == "index") {
-        echo "main menu";
+        ?>
+        <!-- РБК Представляет -->
+        <div class="top_line">
+            <img src="/img/logo.png" alt="">
+        </div>
+
+        <!-- Информация о конкурсе -->
+        <div class="top_info main">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Ну тут все ясно -->
+                    <a class="col-xs-12 col-sm-5 col-md-3 col-md-push-0 brand main" href="<?=\yii\helpers\Url::home()?>">
+                        Брэнд года
+                    </a>
+
+                    <!-- Логотип конкурса -->
+                    <div class="col-xs-12 col-sm-7 col-md-5 col-md-push-0 award">
+                        <img src="/img/award_big.png" alt="">
+                    </div>
+
+                    <!-- Меню навигации -->
+                    <div class="col-xs-12 col-sm-12 col-md-4 top_menu">
+                        <?= \common\modules\contentBlock\widget\ContentBlockWidget::widget([
+                            'id' => 1
+                        ]);
+                        ?>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-12 top_menu main">
+                        <nav>
+                            <ul>
+                                <?php
+                                $url = Yii::$app->request->getUrl();
+                                $url = trim($url, ".html");
+                                $ext = "";
+                                foreach ($menu as $_m) {
+                                    if ($_m->name == "Регистрация") {
+                                        continue;
+                                    }
+                                    echo Html::tag('li', Html::a($_m->name, ['/' . $_m->url]));
+                                }
+                                ?>
+                            </ul>
+                        </nav>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    <?php
     } else {
-        $menu = \common\modules\menu\models\Menu::find()->where(['group_id' => 1])->all();
+
         ?>
         <!-- РБК Представляет -->
         <div class="top_line">
@@ -69,9 +124,9 @@ if (!empty($user) && $user->role->id == 1) {
                 <div class="row">
 
                     <!-- Ну тут все ясно -->
-                    <div class="col-md-2 brand">
+                    <a class="col-md-2 brand" href="<?=\yii\helpers\Url::home()?>">
                         Брэнд года
-                    </div>
+                    </a>
 
                     <!-- Логотип конкурса -->
                     <div class="col-md-3 award">
@@ -91,7 +146,7 @@ if (!empty($user) && $user->role->id == 1) {
                                     if ($_m->name == "Регистрация") {
                                         $ext = "extra";
                                     }
-                                    echo Html::tag('li', Html::a($_m->name, ['/'.$_m->url]), ['class' => (('/'.$_m->url == $url ? 'active' : '')." ".$ext)]);
+                                    echo Html::tag('li', Html::a($_m->name, ['/' . $_m->url]), ['class' => (('/' . $_m->url == $url ? 'active' : (substr_count($url, $_m->url) > 0 ? 'active' : '')) . " " . $ext)]);
                                 }
                                 ?>
                             </ul>
@@ -123,10 +178,6 @@ if (!empty($user) && $user->role->id == 1) {
     </div>
 </footer>
 <?php $this->endBody() ?>
-
-    <!--    --><? //= Breadcrumbs::widget([
-    //        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [""],
-    //    ]) ?>
 
 <?php
 if ($is_admin) {

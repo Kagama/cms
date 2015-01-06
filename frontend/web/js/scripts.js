@@ -1,53 +1,53 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
-    if ($(document).has('.active-edit-block .edit-action-icon')) {
+	var main_news = $(".news-slider .slider"),
+		main_jury = $(".jury-slider .slider");
 
-    }
+
+
+	$(main_news).slick({
+		infinite: true,
+		slidesToShow: 2,
+		slidesToScroll: 1,
+		lazyLoad: false,
+		swipe: true,
+		draggable: true,
+		prevArrow: ".button.left",
+		nextArrow: ".button.right",
+		responsive: [
+			{
+				breakpoint: 480,
+				settings: {
+					arrows: false,
+					centerMode: true,
+					centerPadding: '40px',
+					slidesToShow: 1
+				}
+			}
+		]
+	});
+
+	$(main_jury).slick({
+		autoplay: true,
+		infinite: true,
+		slidesToShow: 4,
+		slidesToScroll: 2,
+		lazyLoad: false,
+		swipe: true,
+		draggable: true,
+		prevArrow: ".button.left",
+		nextArrow: ".button.right",
+		responsive: [
+			{
+				breakpoint: 480,
+				settings: {
+					arrows: false,
+					centerMode: true,
+					centerPadding: '40px',
+					slidesToShow: 2
+				}
+			}
+		]
+	});
 
 });
-
-
-function UploadFileByAjax() {
-    $('#mf').fileupload({
-        dataType: 'json',
-//        acceptFileTypes: /^application\/(msword|vnd.openxmlformats|vnd.openxmlformats-officedocument.spreadsheetml.sheet|vnd.ms-excel|zip|x-rar-compressed|pdf)$/i,
-        add: function (e, data) {
-            console.log('ADD: ' + data.result + ' ' + data.textStatus + ' ' + data.jqXHR);
-
-            var uploadErrors = [];
-            var acceptFileTypes = /^application\/(msword|vnd.openxmlformats|vnd.openxmlformats-officedocument.spreadsheetml.sheet|vnd.ms-excel|zip|x-rar-compressed|pdf)$/i;
-            if (data.originalFiles[0]['type'].length && !acceptFileTypes.test(data.originalFiles[0]['type'])) {
-                uploadErrors.push('Разрешенный к добавлению файлы с расширением: .doc, .docx, .xls, .xlsx, .pdf, .zip, .rar');
-            }
-//            if(data.originalFiles[0]['size'].length && data.originalFiles[0]['size'] > 5000000) {
-//                uploadErrors.push('Filesize is too big');
-//            }
-            if (uploadErrors.length > 0) {
-                alert(uploadErrors.join("\n"));
-            } else {
-
-                $('#form_mf').html('<div class="MultiFile-label"><a class="MultiFile-remove" href="#mf_wrap"><img src="img/delete.png"></a> <span class="MultiFile-title" title="File selected: ' + data.originalFiles[0]['name'] + '">' + data.originalFiles[0]['name'] + '</span></div>');
-
-                data.submit();
-            }
-        },
-        done: function (e, data) {
-            console.log('done: ' + data.result.attach + ' ' + data.textStatus + ' ' + data.jqXHR + ' ');
-            $('#attached_file').val('');
-            $('#attached_file').val(data.result.attach);
-        },
-        fail: function (e, data) {
-            console.log('FAIL: ' + data.errorThrown + ' ' + data.textStatus + ' ' + data.jqXHR.abort() + ' ');
-        },
-        progressall: function (e, data) {
-            var progress = parseInt(data.loaded / data.total * 100, 10) / 100;
-            if (progress > 0.3) {
-                $('#form_mf .MultiFile-label').css(
-                    'opacity',
-                    progress
-                );
-            }
-
-        }
-    });
-}

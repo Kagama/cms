@@ -2,6 +2,7 @@
 
 namespace backend\modules\contentBlock\controllers;
 
+use common\modules\draft\models\Draft;
 use Yii;
 use common\modules\contentBlock\models\ContentBlock;
 use common\modules\contentBlock\models\search\ContentBlockSearch;
@@ -114,6 +115,10 @@ class DefaultController extends Controller
 
                     if ($model->save()) {
                         return $this->redirect(['view', 'id' => $model->id]);
+                    }  else {
+                        return $this->render('update', [
+                            'model' => $model,
+                        ]);
                     }
                 }
             }
@@ -123,6 +128,7 @@ class DefaultController extends Controller
                 'model' => $model,
             ]);
         }
+
     }
 
     /**

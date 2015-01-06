@@ -14,7 +14,14 @@ $route = Yii::$app->controller->getUniqueId();
             <a href="<?= Url::toRoute('/menu/group/index'); ?>"><i class="fa fa-bars"></i> <span
                     class="name">Меню</span></a>
         </li>
-
+        <li class="<?= ($route == 'stage/default') ? "active" : "panel"; ?>">
+            <a href="<?= Url::toRoute('/stage/default/index'); ?>"><i class="fa fa-flag-o"></i> <span
+                    class="name">Этапы конкурса</span></a>
+        </li>
+        <li class="<?= ($route == 'jury/default') ? "active" : "panel"; ?>">
+            <a href="<?= Url::toRoute('/jury/default/index'); ?>"><i class="fa fa-users"></i> <span
+                    class="name">Жюри</span></a>
+        </li>
         <li class="<?= ($route == 'post/default') ? "active" : "panel"; ?>">
             <a href="<?= Url::toRoute('/post/default/index'); ?>"><i class="fa fa-edit"></i> <span
                     class="name">Посты</span></a>

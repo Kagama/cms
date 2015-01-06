@@ -25,7 +25,7 @@ class DefaultController extends Controller
     public function actionAll($menu_alt_name)
     {
 
-        $menu = Menu::find()->where('alt_name = :alt_name', [':alt_name' => $menu_alt_name])->one();
+        $menu = Menu::find()->where('url = :url', [':url' => $menu_alt_name])->one();
 
         $searchModel = new PostSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->getQueryParams());
@@ -35,7 +35,7 @@ class DefaultController extends Controller
             $dataProvider->query->andFilterWhere(['publish' => 1]);
         }
 
-        $dataProvider->pagination->pageSize = 6;
+        $dataProvider->pagination->pageSize = 10000;
 
 
         return $this->render('all', ['dataProvider' => $dataProvider, 'menu' => $menu]);
@@ -44,12 +44,12 @@ class DefaultController extends Controller
     public function actionShow($menu_alt_name, $id_alt_title)
     {
 
-        $menu = Menu::find()->where('alt_name = :alt_name', [':alt_name' => $menu_alt_name])->one();
+        $menu = Menu::find()->where('url = :url', [':url' => $menu_alt_name])->one();
 
         $explode = explode("_", $id_alt_title);
         $model = Post::findOne((int)$explode[0]);
         if (empty($model))
-            throw new NotFoundHttpException('Новость не надейна.', 404);
+            throw new NotFoundHttpException('Запись не надейна.', 404);
 
         $model->setCookie();
         $commentForm = new CommentForm();

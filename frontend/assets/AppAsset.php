@@ -18,8 +18,10 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
+        'css/libs.css',
         'css/main.css',
-        'css/fancySelect.css'
+        'css/fancySelect.css',
+        'css/application.css'
     ];
     public $js = [
 //        'js/jquery.MultiFile.js',
@@ -27,7 +29,7 @@ class AppAsset extends AssetBundle
 //        'js/FileUpload/jquery.ui.widget.js',
 //        'js/FileUpload/jquery.iframe-transport.js',
 //        'js/FileUpload/jquery.fileupload.js',
-//        'js/libs.js',
+        'js/libs.js',
         'js/scripts.js',
 
 
@@ -37,6 +39,6 @@ class AppAsset extends AssetBundle
     ];
     public $depends = [
         'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
+//        'yii\bootstrap\BootstrapAsset',
     ];
 }

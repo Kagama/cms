@@ -9,9 +9,7 @@
 <?php
 \common\widget\html\ActiveEdit::begin(['model' => $model, 'url' => "/contentBlock/simple-edit/edit"]);
 ?>
-<div>
     <?= $model->content; ?>
-</div>
 <?php
 \common\widget\html\ActiveEdit::end();
 ?>

@@ -26,6 +26,8 @@ use yii\web\Cookie;
  * @property integer $publish
  * @property integer $views_count
  * @property integer $menu_id
+ * @property string $author
+ * @property string $source
  */
 class Post extends \yii\db\ActiveRecord
 {
@@ -47,7 +49,7 @@ class Post extends \yii\db\ActiveRecord
             [['small_text', 'text', 'seo_description'], 'string'],
             [['user_id', 'publish', 'views_count', 'menu_id'], 'integer'],
 //            [['date'], 'integer'],
-            [['title', 'alt_title', 'seo_title', 'seo_keywords'], 'string', 'max' => 512],
+            [['title', 'alt_title', 'seo_title', 'seo_keywords', 'author', 'source'], 'string', 'max' => 512],
         ];
 
     }
@@ -70,7 +72,9 @@ class Post extends \yii\db\ActiveRecord
             'user_id' => 'Пользователь',
             'publish' => 'Публиковать',
             'views_count' => 'Количество просмотров',
-            'menu_id' => 'Меню'
+            'menu_id' => 'Меню',
+            'author' => 'Автор',
+            'source' => 'Источник'
         ];
     }
 

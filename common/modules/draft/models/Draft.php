@@ -88,6 +88,7 @@ class Draft extends \yii\db\ActiveRecord
 
         $draft->model_id = $model->getPrimaryKey();
         $draft->model_name = $model->className();
+
         $draft->model_obj = serialize($model);
 
         return $draft->save();

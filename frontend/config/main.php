@@ -28,12 +28,18 @@ return [
         'main' => [
             'class' => 'frontend\modules\main\MainModule',
         ],
+        'jury' => [
+            'class' => 'frontend\modules\jury\JuryModule',
+        ],
         'comment' => [
             'class' => 'frontend\modules\comment\CommentModule',
         ],
         'contentBlock' => [
             'class' => 'frontend\modules\contentBlock\ContentBlockModule'
-        ]
+        ],
+//        'stage' => [
+//            'class' => 'frontend\modules\stage\StageModule',
+//        ],
     ],
     'as myDModuleUrlRulesBehavior' => [
         'class' => 'common\behaviors\DModuleUrlRulesBehavior',

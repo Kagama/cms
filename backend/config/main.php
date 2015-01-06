@@ -24,6 +24,9 @@ return [
         'post' => [
             'class' => 'backend\modules\post\PostModule',
         ],
+        'jury' => [
+            'class' => 'backend\modules\jury\JuryModule',
+        ],
         'menu' => [
             'class' => 'backend\modules\menu\MenuModule',
         ],
@@ -45,7 +48,10 @@ return [
         ],
         'layoutEditor' => [
             'class' => 'backend\modules\layoutEditor\LayoutEditorModule'
-        ]
+        ],
+        'stage' => [
+            'class' => 'backend\modules\stage\StageModule',
+        ],
     ],
     'components' => [
         'mail' => [

@@ -12,7 +12,7 @@ $this->title = 'Создать информационный блок';
 $this->params['breadcrumbs'][] = ['label' => 'Информационный блок', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="content-block-create padding020">
+<div class="content-block-create padding020 widget">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

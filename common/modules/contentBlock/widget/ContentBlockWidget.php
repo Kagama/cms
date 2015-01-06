@@ -18,6 +18,7 @@ class ContentBlockWidget extends Widget
     public function run()
     {
         $model = ContentBlock::findOne((int) $this->id);
+
         if (!empty($model) && $model->visible == 1) {
             return $this->render('_content_block',['model' => $model]);
         }

@@ -17,9 +17,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'content', [
         'template' => "
                 {label}
-                <div style='color:#000;'>
-                {input}
-                </div>
+                <div class='textarea-content'>{input}</div>
                 {error}
             "
     ])->widget(sim2github\imperavi\widgets\Redactor::className(), [
@@ -35,7 +33,7 @@ use yii\widgets\ActiveForm;
             'linkEmail' => 'true', //By default
             'lang' => 'ru',
             'tidyHtml' => true,
-            'allowedTags' => ['p', 'blockquote', 'b', 'i', 'ul', 'li', 'ol', 'a', 'div', 'span', 'bold', 'table', 'tr', 'td', 'thead', 'tbody', 'tfoot', 'img', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+            'allowedTags' => ['p', 'blockquote', 'b', 'strong', 'i', 'ul', 'li', 'ol', 'a', 'div', 'span', 'bold', 'table', 'tr', 'td', 'thead', 'tbody', 'tfoot', 'img', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
             'phpTags' => true,
             'pastePlainText' => false,
             'replaceDivs' => false,
@@ -59,7 +57,7 @@ use yii\widgets\ActiveForm;
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Создать' : 'Обновить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary', 'name' => 'submit', 'value' => 'submit']) ?>
-        <?= Html::submitButton('Опубликовать', ['class' => 'btn btn-primary', 'name' => 'sbm_publish', 'value' => 'publish']) ?>
+        <?= Html::submitButton('Опубликовать', ['class' => 'btn btn-primary', 'name' => 'submit', 'value' => 'publish']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

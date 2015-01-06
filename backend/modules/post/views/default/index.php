@@ -33,9 +33,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'filterModel' => $searchModel,
             'options' => ['class' => 'table table-striped dataTable', 'aria-describedby' => "datatable-table_info", 'id' => 'datatable-table'],
             'columns' => [
-                ['class' => 'yii\grid\SerialColumn'],
+//                ['class' => 'yii\grid\SerialColumn'],
 
-//            'id',
+            'id',
                 'date:date',
                 'title',
                 [

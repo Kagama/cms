@@ -27,7 +27,8 @@ use yii\widgets\ActiveForm;
             ]); ?>
         </div>
 
-
+        <?= $form->field($model, 'author')->textInput(); ?>
+        <?= $form->field($model, 'source')->textInput(); ?>
 
         <?= $form->field($model, 'menu_id')->dropDownList(\yii\helpers\ArrayHelper::map(\common\modules\menu\models\Menu::find()->where('module_id = 1')->all(), 'id', 'name'), ['prompt' => '---']) ?>
         <?= $form->field($model, 'title')->textInput(['maxlength' => 512]) ?>
