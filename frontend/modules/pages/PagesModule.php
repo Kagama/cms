@@ -27,7 +27,9 @@ class PagesModule extends myModule
         foreach ($menuArr as $item) {
             $ruleArr['<menu_url:('.str_replace("/", "\/",$item->url).')>'] = 'pages/default/show';
         }
-        $ruleArr['contacts'] = 'pages/default/contact';
+//        print_r($ruleArr);
+//        die();
+//        $ruleArr['contacts'] = 'pages/default/contact';
         return $ruleArr;
     }
 }

@@ -33,8 +33,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
 //            'id',
             'title',
-//            'alt_title',
-            'small_text:html',
+            'file_name',
+//            'small_text:html',
 //            'text:ntext',
             // 'seo_title',
             // 'seo_keywords',

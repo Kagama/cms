@@ -5,6 +5,7 @@ namespace frontend\modules\pages\controllers;
 use common\modules\menu\models\Menu;
 use common\modules\pages\models\Pages;
 use yii\web\Controller;
+use yii\web\NotFoundHttpException;
 
 class DefaultController extends Controller
 {
@@ -14,7 +15,11 @@ class DefaultController extends Controller
 
         $model = Pages::findOne($menu->module_model_id);
 
-        return $this->render('show', [
+        if (!is_file(\Yii::$app->basePath ."/../frontend/modules/pages/views/default/".$model->file_name.".php")) {
+            throw new NotFoundHttpException('Страница не найдена');
+        }
+
+        return $this->render($model->file_name, [
             'model' => $model,
             'menu' => $menu
         ]);

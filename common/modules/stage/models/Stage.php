@@ -55,4 +55,16 @@ class Stage extends \yii\db\ActiveRecord
             'past_stage' => 'Отметить как завершенный этап',
         ];
     }
+
+    public function afterSave($insert, $changedAttr)
+    {
+        if (isset($changedAttr['current_stage'])) {
+            Stage::updateAll(['current_stage' => 0]);
+            if ($this->current_stage == 1) {
+                Stage::updateAll(['current_stage' => 1], 'id = '.$this->getPrimaryKey());
+            }
+        }
+
+        return parent::afterSave($insert, $changedAttr);
+    }
 }

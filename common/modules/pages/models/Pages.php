@@ -4,18 +4,15 @@ namespace common\modules\pages\models;
 
 use Yii;
 use common\helpers\CString;
+use yii\web\NotFoundHttpException;
 
 /**
  * This is the model class for table "t_kg_pages".
  *
  * @property integer $id
  * @property string $title
- * @property string $alt_title
- * @property string $small_text
+ * @property string $file_name
  * @property string $text
- * @property string $seo_title
- * @property string $seo_keywords
- * @property string $seo_description
  */
 class Pages extends \yii\db\ActiveRecord
 {
@@ -34,9 +31,9 @@ class Pages extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'text'], 'required'],
-            [['small_text', 'text', 'seo_description'], 'string'],
-            [['title', 'alt_title', 'seo_title', 'seo_keywords'], 'string', 'max' => 512],
-            [['small_text', 'text', 'seo_description'], 'string', 'max' => 9999999]
+            [['text'], 'string'],
+            [['title', 'file_name'], 'string', 'max' => 512],
+            [['text'], 'string', 'max' => 9999999]
         ];
     }
 
@@ -48,20 +45,31 @@ class Pages extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'title' => 'Заголовок',
-            'alt_title' => 'Alt Заголовок',
-            'small_text' => 'Краткое описание',
+            'file_name' => 'Название файла',
+//            'small_text' => 'Краткое описание',
             'text' => 'Полный текст',
-            'seo_title' => 'Seo Заголовок',
-            'seo_keywords' => 'Seo Ключевые слова',
-            'seo_description' => 'Seo Описение',
+//            'seo_title' => 'Seo Заголовок',
+//            'seo_keywords' => 'Seo Ключевые слова',
+//            'seo_description' => 'Seo Описение',
         ];
     }
 
-    public function beforeValidate() {
+    public function beforeValidate()
+    {
         if (parent::beforeValidate()) {
-            $this->alt_title = CString::translitTo($this->title);
+//            $this->alt_title = CString::translitTo($this->title);
             return true;
         }
         return false;
+    }
+
+    public function afterSave($insert, $changedAttr)
+    {
+//        if (isset($changedAttr['text'])) {
+
+            file_put_contents(Yii::$app->basePath . '/../frontend/modules/pages/views/default/' . $this->file_name . ".php", $this->text);
+//        }
+
+        return parent::afterSave($insert, $changedAttr);
     }
 }

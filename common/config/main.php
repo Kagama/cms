@@ -13,5 +13,16 @@ return [
             'class' => 'yii\image\ImageDriver',
             'driver' => 'GD',  //GD or Imagick
         ],
+//        'view' => [
+//            'class' => 'yii\web\View',
+//
+//            'renderers' => [
+//                'tpl' => [
+//                    'class' => 'yii\tal\ViewRenderer',
+//
+//                    //'cachePath' => '@runtime/Tal/cache',
+//                ],
+//            ],
+//        ],
     ],
 ];

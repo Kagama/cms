@@ -36,12 +36,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'title',
-            'alt_title',
-            'small_text:html',
+            'file_name',
+//            'small_text:html',
             'text:html',
-            'seo_title',
-            'seo_keywords',
-            'seo_description:ntext',
+//            'seo_title',
+//            'seo_keywords',
+//            'seo_description:ntext',
         ],
     ]) ?>
 
