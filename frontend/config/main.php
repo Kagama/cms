@@ -37,6 +37,9 @@ return [
         'contentBlock' => [
             'class' => 'frontend\modules\contentBlock\ContentBlockModule'
         ],
+        'winners' => [
+            'class' => 'frontend\modules\winners\WinnersModule',
+        ],
 //        'stage' => [
 //            'class' => 'frontend\modules\stage\StageModule',
 //        ],

@@ -44,7 +44,7 @@ Yii::$app->view->registerMetaTag(['name' => 'description', 'content' => Yii::$ap
 <section class="news-slider">
     <div class="container">
 
-        <h1>Новости</h1>
+        <a href="<?=\yii\helpers\Url::to(['/news'])?>" class="h1">Новости</a>
 
         <div class="row">
 
@@ -121,7 +121,7 @@ Yii::$app->view->registerMetaTag(['name' => 'description', 'content' => Yii::$ap
 <section class="jury-slider">
     <div class="container">
 
-        <h1>Жюри конкурса</h1>
+        <a href="<?=\yii\helpers\Url::to(['/jury'])?>" class="h1">Жюри конкурса</a>
 
         <div class="row">
             <div class="button left"><img src="/img/icons/slider_prev.png" /></div>

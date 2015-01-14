@@ -52,6 +52,9 @@ return [
         'stage' => [
             'class' => 'backend\modules\stage\StageModule',
         ],
+        'winners' => [
+            'class' => 'backend\modules\winners\WinnersModule',
+        ],
     ],
     'components' => [
         'mail' => [

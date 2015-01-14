@@ -1127,9 +1127,13 @@ a.brand {
 .news-slider {
   margin: 64px 0;
 }
-.news-slider h1 {
+.news-slider .h1 {
   border-bottom: 1px solid #b4975a;
   display: inline-block;
+  font-size: 32px;
+  font-weight: 700;
+  margin: 16px 0 16px 0;
+  color:#000;
 }
 .news-slider .slider {
   width: 100%;
@@ -1172,6 +1176,15 @@ a.brand {
   margin: 0;
   border-bottom: 1px solid #b4975a;
 }
+.main-about .h1 {
+  display: inline-block;
+  margin: 0;
+  border-bottom: 1px solid #b4975a;
+  font-size: 32px;
+  font-weight: 700;
+  color:#000;
+
+}
 .main-about p {
   line-height: 1.5;
   margin: 1em 0;
@@ -1188,6 +1201,16 @@ a.brand {
   margin-bottom: 1em;
   padding-bottom: 6px;
   border-bottom: 1px solid #4c4c4c;
+}
+.jury-slider .h1 {
+  line-height: 1;
+  display: inline-block;
+  margin-bottom: 1em;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #4c4c4c;
+  font-size: 32px;
+  font-weight: 700;
+  color:#000;
 }
 .jury-slider img {
   max-width: 95%;
@@ -1245,6 +1268,16 @@ a.brand {
   margin-bottom: .5em;
   padding-bottom: 6px;
   border-bottom: 1px solid #4c4c4c;
+}
+.main-partners .h1 {
+  line-height: 1;
+  display: inline-block;
+  margin-bottom: .5em;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #4c4c4c;
+  font-size: 32px;
+  font-weight: 700;
+  color:#000;
 }
 .main-partners [class^='col'] {
   text-align: center;
@@ -1607,6 +1640,15 @@ a.brand {
 }
 .partners h1 {
   margin: 1em 0;
+}
+.partners .h1 {
+  display: inline-block;
+  margin: 1em 0;
+  border-bottom: 1px solid #b4975a;
+  font-size: 32px;
+  font-weight: 700;
+  color:#000;
+
 }
 .partners .logo {
   height: 100px;
