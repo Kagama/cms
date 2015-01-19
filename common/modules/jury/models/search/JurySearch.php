@@ -18,7 +18,7 @@ class JurySearch extends Jury
     public function rules()
     {
         return [
-            [['id', 'publish'], 'integer'],
+            [['id', 'publish', 'position'], 'integer'],
             [['img', 'flp', 'bio'], 'safe'],
         ];
     }
@@ -54,6 +54,7 @@ class JurySearch extends Jury
         $query->andFilterWhere([
             'id' => $this->id,
             'publish' => $this->publish,
+            'position' => $this->position
         ]);
 
         $query->andFilterWhere(['like', 'img', $this->img])

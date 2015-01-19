@@ -1,6 +1,7 @@
 <?php
 use \yii\helpers\Html;
 
+
 /**
  * Created by PhpStorm.
  * User: developer
@@ -13,6 +14,7 @@ $this->title = Yii::$app->params['seo_title'];
 Yii::$app->view->registerMetaTag(['name' => 'keywords', 'content' => Yii::$app->params['seo_keywords']]);
 Yii::$app->view->registerMetaTag(['name' => 'description', 'content' => Yii::$app->params['seo_description']]);
 ?>
+
 <!-- Описание -->
 <section class="main-description">
 
@@ -23,18 +25,23 @@ Yii::$app->view->registerMetaTag(['name' => 'description', 'content' => Yii::$ap
     <div class="right">
         <div class="big_y">2015</div>
 
-        <?=\common\modules\contentBlock\widget\ContentBlockWidget::widget([
+        <?= \common\modules\contentBlock\widget\ContentBlockWidget::widget([
             'id' => 4
-        ]);?>
+        ]); ?>
         <div class="row">
             <div class="col-md-4">
-                <a href="" class="reg">Регистрация</a>
+                <a class="reg open_r_form">Регистрация</a>
             </div>
 
             <div class="col-md-8">
-                <p>Для подачи заявки на конкурс и участия в семинаре пройдите онлайн-регистрацию. Бланки заявки мы пришлем по электронной почте.</p>
+                <?= \common\modules\contentBlock\widget\ContentBlockWidget::widget([
+                    'id' => 11
+                ]); ?>
             </div>
         </div>
+
+        <?=$this->render('_reg_form', ['regForm' => $regForm, 'emailSendError' => false])?>
+
 
     </div>
 
@@ -44,11 +51,11 @@ Yii::$app->view->registerMetaTag(['name' => 'description', 'content' => Yii::$ap
 <section class="news-slider">
     <div class="container">
 
-        <a href="<?=\yii\helpers\Url::to(['/news'])?>" class="h1">Новости</a>
+        <a href="<?= \yii\helpers\Url::to(['/news']) ?>" class="h1">Новости</a>
 
         <div class="row">
 
-            <div class="button left"><img src="/img/icons/slider_prev.png" /></div>
+            <div class="button left"><img src="/img/icons/slider_prev.png"/></div>
 
             <div class="slider">
                 <?php
@@ -58,16 +65,16 @@ Yii::$app->view->registerMetaTag(['name' => 'description', 'content' => Yii::$ap
                     ?>
                     <div class="col-xs-12 col-sm-6 col-md-6 item">
 
-                        <h3><?=Html::a($_new->title, ['/' . $menuNews->url . '/' . $_new->id . "_" . $_new->alt_title])?></h3>
-                        <h5><?=Yii::$app->formatter->asDate($_new->date, "d MMMM")?></h5>
-                        <?=strip_tags($_new->small_text)?>
+                        <h3><?= Html::a($_new->title, ['/' . $menuNews->url . '/' . $_new->id . "_" . $_new->alt_title]) ?></h3>
+                        <h5><?= Yii::$app->formatter->asDate($_new->date, "d MMMM") ?></h5>
+                        <?= strip_tags($_new->small_text) ?>
                     </div>
                 <?php
                 }
                 ?>
             </div>
 
-            <div class="button right"><img src="/img/icons/slider_next.png" /></div>
+            <div class="button right"><img src="/img/icons/slider_next.png"/></div>
 
         </div>
     </div>
@@ -78,9 +85,9 @@ Yii::$app->view->registerMetaTag(['name' => 'description', 'content' => Yii::$ap
     <div class="container">
         <div class="row">
             <div class="col-xs-7 col-sm-8 col-md-9">
-                <?=\common\modules\contentBlock\widget\ContentBlockWidget::widget([
+                <?= \common\modules\contentBlock\widget\ContentBlockWidget::widget([
                     'id' => 3
-                ]);?>
+                ]); ?>
 
             </div>
             <div class="col-xs-5 col-sm-4 col-md-3">
@@ -96,17 +103,19 @@ Yii::$app->view->registerMetaTag(['name' => 'description', 'content' => Yii::$ap
     <div class="container">
 
         <h1>Этапы 2014</h1>
+
         <div class="row">
             <?php
             $stages = \common\modules\stage\models\Stage::find()->all();
 
             foreach ($stages as $index => $stage) {
                 ?>
-                <div class="col-xs-6 col-sm-4 col-md-3 level <?=$stage->past_stage == 1  ? "disabled" : ""?> <?=$stage->current_stage == 1  ? "current" : ""?>">
-                    <h2><?=$stage->number?></h2>
-                    <span class="date <?=(count($stages) == ($index + 1) ? "t-g" : "")?>"><?=$stage->date?></span>
-                    <a class="title"><?=$stage->title?></a>
-                    <span class="stat"><?=($stage->past_stage == 1 ? "Этап завершен" : $stage->note)?></span>
+                <div
+                    class="col-xs-6 col-sm-4 col-md-3 level <?= $stage->past_stage == 1 ? "disabled" : "" ?> <?= $stage->current_stage == 1 ? "current" : "" ?>">
+                    <h2><?= $stage->number ?></h2>
+                    <span class="date <?= (count($stages) == ($index + 1) ? "t-g" : "") ?>"><?= $stage->date ?></span>
+                    <a class="title"><?= $stage->title ?></a>
+                    <span class="stat"><?= ($stage->past_stage == 1 ? "Этап завершен" : $stage->note) ?></span>
                 </div>
             <?php
             }
@@ -114,30 +123,29 @@ Yii::$app->view->registerMetaTag(['name' => 'description', 'content' => Yii::$ap
         </div>
 
     </div>
-    </div>
 </section>
 
 <!-- Слайдер жюри -->
 <section class="jury-slider">
     <div class="container">
 
-        <a href="<?=\yii\helpers\Url::to(['/jury'])?>" class="h1">Жюри конкурса</a>
+        <a href="<?= \yii\helpers\Url::to(['/jury']) ?>" class="h1">Жюри конкурса</a>
 
         <div class="row">
-            <div class="button left"><img src="/img/icons/slider_prev.png" /></div>
+            <div class="button left"><img src="/img/icons/slider_prev.png"/></div>
 
             <div class="slider">
 
                 <?php
-                $juryArr = \common\modules\jury\models\Jury::find()->all();
+                $juryArr = \common\modules\jury\models\Jury::find()->orderBy('position ASC')->all();
 
                 foreach ($juryArr as $_jury) {
-                ?>
+                    ?>
                     <div class="col-xs-6 cols-sm-4 col-md-3 item">
-                        <?=Html::img("/".$_jury->img, ['alt' => $_jury->flp])?>
+                        <?= Html::img("/" . $_jury->img, ['alt' => $_jury->flp]) ?>
                         <?php
                         $flpExplode = explode(" ", $_jury->flp);
-                        echo "<span>".implode("</span><span>", $flpExplode)."</span>";
+                        echo "<span>" . implode("</span><span>", $flpExplode) . "</span>";
                         ?>
                     </div>
                 <?php
@@ -146,12 +154,12 @@ Yii::$app->view->registerMetaTag(['name' => 'description', 'content' => Yii::$ap
 
             </div>
 
-            <div class="button right"><img src="/img/icons/slider_next.png" /></div>
+            <div class="button right"><img src="/img/icons/slider_next.png"/></div>
 
             <div class="col-md-4 all">
                 <?php
                 $_menu = \common\modules\menu\models\Menu::find()->where(['name' => 'Жюри конкурса'])->one();
-                echo Html::a('Весь состав жюри', ['/'.$_menu->url], ['class' => 'reg']);
+                echo Html::a('Весь состав жюри', ['/' . $_menu->url], ['class' => 'reg']);
                 unset($_menu);
                 ?>
 
@@ -168,9 +176,9 @@ Yii::$app->view->registerMetaTag(['name' => 'description', 'content' => Yii::$ap
         <div class="row">
 
             <div class="col-xs-7 col-sm-8 col-md-9">
-                <?=\common\modules\contentBlock\widget\ContentBlockWidget::widget([
+                <?= \common\modules\contentBlock\widget\ContentBlockWidget::widget([
                     'id' => 5
-                ]);?>
+                ]); ?>
             </div>
 
             <div class="col-xs-5 col-sm-4 col-md-3">
@@ -186,9 +194,9 @@ Yii::$app->view->registerMetaTag(['name' => 'description', 'content' => Yii::$ap
     <div class="container">
         <div class="row">
 
-            <?=\common\modules\contentBlock\widget\ContentBlockWidget::widget([
+            <?= \common\modules\contentBlock\widget\ContentBlockWidget::widget([
                 'id' => 6
-            ]);?>
+            ]); ?>
 
         </div>
     </div>
@@ -197,8 +205,8 @@ Yii::$app->view->registerMetaTag(['name' => 'description', 'content' => Yii::$ap
 <!-- Контакты -->
 <section class="main-contacts">
     <div class="container">
-        <?=\common\modules\contentBlock\widget\ContentBlockWidget::widget([
+        <?= \common\modules\contentBlock\widget\ContentBlockWidget::widget([
             'id' => 7
-        ]);?>
+        ]); ?>
     </div>
 </section>

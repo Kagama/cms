@@ -17,6 +17,7 @@ use yii\web\UploadedFile;
  * @property string $flp
  * @property string $bio
  * @property integer $publish
+ * @property integer $position
  */
 class Jury extends \yii\db\ActiveRecord
 {
@@ -36,7 +37,7 @@ class Jury extends \yii\db\ActiveRecord
         return [
             [['flp', 'bio'], 'required'],
             [['bio'], 'string'],
-            [['publish'], 'integer'],
+            [['publish', 'position'], 'integer'],
             [['img'], 'image', 'extensions' => 'jpg, jpeg, gif, png', 'skipOnEmpty' => true],
             [['flp'], 'string', 'max' => 512]
         ];
@@ -53,6 +54,7 @@ class Jury extends \yii\db\ActiveRecord
             'flp' => 'ФИО',
             'bio' => 'Биография',
             'publish' => 'Опубликовать',
+            'position' => 'Позиция отображения'
         ];
     }
 

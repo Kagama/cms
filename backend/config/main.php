@@ -55,6 +55,9 @@ return [
         'winners' => [
             'class' => 'backend\modules\winners\WinnersModule',
         ],
+        'nomination' => [
+            'class' => 'backend\modules\nomination\NominationModule',
+        ],
     ],
     'components' => [
         'mail' => [

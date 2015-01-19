@@ -10,7 +10,7 @@ $this->registerAssetBundle('backend\modules\post\assets\PostModuleAsset', \yii\w
  * @var common\modules\user\models\User $model
  */
 
-$this->title = $model->phone;
+$this->title = $model->username;
 $this->params['breadcrumbs'][] = ['label' => 'Пользователи', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -35,20 +35,20 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'username',
-            'email:email',
-            'phone',
+            'password',
+//            'phone',
             [
                 'label' => 'Роль пользователя',
-                'value' => $model->userRole->name,
+                'value' => $model->role->name,
             ],
             [
                 'attribute' => 'status',
                 'value' => $model->status == 1 ? "Да" : "Нет",
             ],
-            [
-                'attribute' => 'approve_newsletter',
-                'value' => $model->approve_newsletter == 1 ? "Да" : "Нет",
-            ]
+//            [
+//                'attribute' => 'approve_newsletter',
+//                'value' => $model->approve_newsletter == 1 ? "Да" : "Нет",
+//            ]
         ],
     ]) ?>
 

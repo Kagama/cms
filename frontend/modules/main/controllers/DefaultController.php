@@ -3,6 +3,7 @@
 namespace frontend\modules\main\controllers;
 
 
+use common\modules\participant\models\ParticipantOfCompetition;
 use frontend\modules\main\models\ContactForm;
 use Yii;
 use yii\helpers\Json;
@@ -11,11 +12,8 @@ use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use frontend\modules\main\models\SignupForm;
-use frontend\modules\main\models\LoginForm;
-use common\modules\consultation\models\Consultation;
-use frontend\modules\consultation\models\ConsultationForm;
-use frontend\modules\consultation\widget\ConsultationWidget;
+use frontend\modules\main\models\RegistrationForm;
+
 
 class DefaultController extends Controller
 {
@@ -27,15 +25,15 @@ class DefaultController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'signup', 'contact'],
+                'only' => ['registration', 'captcha'],
                 'rules' => [
                     [
-                        'actions' => ['signup', 'contact'],
+                        'actions' => ['registration', 'captcha'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['registration', 'captcha'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -60,8 +58,12 @@ class DefaultController extends Controller
                 'class' => 'yii\web\ErrorAction',
             ],
             'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+                'class' => 'common\helpers\myCaptchaAction',
+                'foreColor' => 0x666666,
+                'maxLength' => 5,
+                'fontFile' => '@frontend/web/font/carroisgothic-regular.ttf',
+                'offset' => -1
+                //'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
         ];
     }
@@ -77,11 +79,35 @@ class DefaultController extends Controller
 //
 //            }
 //        }
+        $regForm = new RegistrationForm();
 
-        return $this->render('index');
+
+        if (Yii::$app->request->isAjax) {
+            if ($regForm->load(Yii::$app->request->post())) {
+                if (!$regForm->validate()) {
+                    return Json::encode(['error' => true, 'html' => $this->renderPartial('_reg_form', ['regForm' => $regForm, 'emailSendError' => false])]);
+                } else {
+                    if ($regForm->add()) {
+                        return Json::encode(['error' => false, 'html' => '<p>Мы благодарим Вас за интерес к премии EFFIE/Брэнд года.<br />Наш менеджер свяжется с Вами в ближайшее время, чтобы завершить оформление заявки.</p>']);
+                    } else {
+                        return Json::encode(['error' => true, 'html' => $this->renderPartial('_reg_form', ['regForm' => $regForm, 'emailSendError' => true])]);
+                    }
+                }
+            }
+        }
+
+
+        return $this->render('index', [
+            'regForm' => $regForm
+        ]);
     }
 
-    public function actionLogin()
+    public function actionRegistration()
+    {
+
+    }
+
+    /*public function actionLogin()
     {
         if (!\Yii::$app->user->isGuest) {
             return $this->goHome();
@@ -150,5 +176,5 @@ class DefaultController extends Controller
             }
             Yii::$app->end();
         }
-    }
+    }*/
 }

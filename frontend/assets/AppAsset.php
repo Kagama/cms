@@ -19,6 +19,8 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/libs.css',
+        'css/jquery.mCustomScrollbar.css',
+        'css/slick.css',
         'css/main.css',
         'css/fancySelect.css',
         'css/application.css'
@@ -29,7 +31,10 @@ class AppAsset extends AssetBundle
 //        'js/FileUpload/jquery.ui.widget.js',
 //        'js/FileUpload/jquery.iframe-transport.js',
 //        'js/FileUpload/jquery.fileupload.js',
-        'js/libs.js',
+//        'js/libs.js',
+        'js/jquery.mCustomScrollbar.concat.min.js',
+        'js/jquery.mousewheel.min.js',
+        'js/slick.min.js',
         'js/scripts.js',
 
 

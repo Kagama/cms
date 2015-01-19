@@ -34,10 +34,14 @@ use yii\widgets\ActiveForm;
         echo $form->field($model, 'img')->fileInput();
     }
     ?>
-
-
-    <?= $form->field($model, 'flp')->textInput(['maxlength' => 512]) ?>
-
+    <div class="row">
+        <div class="col-lg-6">
+            <?= $form->field($model, 'flp')->textInput(['maxlength' => 512]) ?>
+        </div>
+        <div class="col-lg-6">
+            <?= $form->field($model, 'position')->textInput(['maxlength' => 512]) ?>
+        </div>
+    </div>
 
     <?= $form->field($model, 'bio', [
         'template' => "

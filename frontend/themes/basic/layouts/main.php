@@ -32,7 +32,6 @@ if (!empty($user) && $user->role->id == 1) {
     <?php
     if ($is_admin) {
         ?>
-        <link href="/css/application.css" rel="stylesheet">
 
         <!-- Add fancyBox -->
         <link rel="stylesheet" href="/js/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen"/>
@@ -92,10 +91,9 @@ if (!empty($user) && $user->role->id == 1) {
                         <nav>
                             <ul>
                                 <?php
-                                $url = Yii::$app->request->getUrl();
-                                $url = trim($url, ".html");
-                                $ext = "";
-                                foreach ($menu as $_m) {
+                                $count = count($menu);
+
+                                foreach ($menu as $index => $_m) {
                                     if ($_m->name == "Регистрация") {
                                         continue;
                                     }
@@ -163,7 +161,7 @@ if (!empty($user) && $user->role->id == 1) {
     //        ?>
 
 </header>
-<?= Alert::widget() ?>
+<?//= Alert::widget() ?>
 <?= $content ?>
 
 <!-- Подвал -->
@@ -195,7 +193,7 @@ if ($is_admin) {
 <?php
 }
 ?>
-<script>
+<script type="text/javascript">
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

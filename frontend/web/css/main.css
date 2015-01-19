@@ -970,13 +970,9 @@ ol li {
   color: #000;
   font-weight: bold;
   letter-spacing: -2px;
-
 }
 .brand.main {
   font-size: 90px;
-}
-a.brand {
-  color: #000;
 }
 .award {
   text-align: center;
@@ -985,13 +981,17 @@ a.brand {
   .award {
     margin: 32px 0;
   }
+
+  .top_menu.main nav ul {
+    text-align: center;
+  }
 }
 .top_menu {
   padding: .5em 1.5em;
   text-align: center;
 }
 .top_menu.main nav ul {
-  text-align: justify;
+  text-align: center;
   display: inline-block;
   width: 100%;
   margin: 0px;
@@ -1003,21 +1003,31 @@ a.brand {
 .top_menu.main nav ul li,
 .top_menu.main nav ul a {
   font-size: 18px;
-  margin: 0;
+  margin-right: 12%;
   padding: 0;
+  text-align: left;
 }
+
+.top_menu.main nav ul li:last-child {
+  margin: 0px;
+  text-align: right;
+}
+
 .top_menu.main nav ul::after {
   position: relative;
   display: inline-block;
   width: 100%;
   height: 0px;
 }
+.main_menu_helper {
+  width: 100%;
+  height: 2px;
+  display: inline-block;
+  vertical-align: top;
+}
 .top_menu nav ul {
-  font-size: 0;
-  line-height: 0;
-  letter-spacing: -1;
   position: relative;
-  text-align: left;
+  text-align: justify;
 }
 @media screen and (max-width: 992px) {
   .top_menu nav ul {
@@ -1036,12 +1046,16 @@ a.brand {
   font-size: 16px;
   line-height: normal;
   letter-spacing: normal;
-  position: relative;
   line-height: 2;
   display: inline-block;
   margin: 0 10px 10px 0px;
   text-align: center;
-  padding: .3em;
+  padding: 0em;
+}
+.top_menu nav ul::after {
+  content: '';
+  display: inline-block;
+  width: 100%;
 }
 .top_menu nav ul li a {
   color: #000;
@@ -1085,11 +1099,13 @@ a.brand {
   letter-spacing: normal;
   background: red;
   box-sizing: border-box;
-  display: table-cell;
+  display: inline-block;
+  vertical-align: top;
   padding: .5em 3em;
 }
 .main-description .left {
   width: 47%;
+  height: 875px;
   border-right: 2px solid #fff;
   background: url('/img/i/bg-left.jpg') top right;
 }
@@ -1122,10 +1138,76 @@ a.brand {
   margin: 2em 0;
   color: #fff;
   font-size: 18px;
+  cursor: pointer;
   box-shadow: 1px 1px 0px #444444, 2px 2px 0px #444444, 3px 3px 0px #444444, 4px 4px 0px #444444, 5px 5px 0px #444444, 6px 6px 0px #444444, 7px 7px 0px #444444, 8px 8px 0px #444444, 9px 9px 0px #444444, 10px 10px 0px #444444;
+}
+.main-description .reg.inactive {
+  background: #CBCAC6;
+  color: #777;
+  box-shadow: 1px 1px 0px #CBCAC6,
+				2px 2px 0px #CBCAC6,
+				3px 3px 0px #CBCAC6, 
+				4px 4px 0px #CBCAC6, 
+				5px 5px 0px #CBCAC6, 
+				6px 6px 0px #CBCAC6, 
+				7px 7px 0px #CBCAC6, 
+				8px 8px 0px #CBCAC6, 
+				9px 9px 0px #CBCAC6, 
+				10px 10px 0px #CBCAC6;
+}
+.main-description form {
+  padding: 1em 0;
+  font-size: 18px;
+  text-align: left;
+}
+.main-description form [class^="col"] {
+  vertical-align: middle;
+  font-size: 18px;
+}
+.main-description form input {
+  width: 100%;
+  border: none;
+  padding: 9px;
+  margin: 10px 0;
+  vertical-align: middle;
+}
+.main-description form .captcha {
+  margin-bottom: 16px;
+}
+.main-description form .captcha input {
+  width: 100px;
+}
+.main-description form .captcha * {
+  vertical-align: middle;
+}
+.main-description form .cap_upd {
+  cursor: pointer;
+  display: inline-block;
+}
+.main-description form .cap_upd span {
+  border-bottom: 1px dotted #444444;
+  margin: 4px;
+  font-size: 14px;
+}
+.main-description input[type="checkbox"] {
+  display: none;
+}
+.main-description input[type="checkbox"]:checked + label {
+  background: #ffffff url('/img/i/checked.png') no-repeat center;
+}
+.main-description input[type="checkbox"] + label {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: #fff;
+  cursor: pointer;
 }
 .news-slider {
   margin: 64px 0;
+}
+.news-slider h1 {
+  border-bottom: 1px solid #b4975a;
+  display: inline-block;
 }
 .news-slider .h1 {
   border-bottom: 1px solid #b4975a;
@@ -1230,11 +1312,26 @@ a.brand {
   padding: .3em 1em;
   margin: 2em 0;
   font-size: 18px;
+  cursor: pointer;
   box-shadow: 1px 1px 0px #444444, 2px 2px 0px #444444, 3px 3px 0px #444444, 4px 4px 0px #444444, 5px 5px 0px #444444, 6px 6px 0px #444444, 7px 7px 0px #444444, 8px 8px 0px #444444, 9px 9px 0px #444444, 10px 10px 0px #444444;
   color: #fff;
   padding: .5em 1em;
   margin: 32px 0;
   vertical-align: middle;
+}
+.jury-slider .reg.inactive {
+  background: #CBCAC6;
+  color: #777;
+  box-shadow: 1px 1px 0px #CBCAC6,
+				2px 2px 0px #CBCAC6,
+				3px 3px 0px #CBCAC6, 
+				4px 4px 0px #CBCAC6, 
+				5px 5px 0px #CBCAC6, 
+				6px 6px 0px #CBCAC6, 
+				7px 7px 0px #CBCAC6, 
+				8px 8px 0px #CBCAC6, 
+				9px 9px 0px #CBCAC6, 
+				10px 10px 0px #CBCAC6;
 }
 .jury-slider .reg::after {
   display: inline-block;
@@ -1326,122 +1423,91 @@ a.brand {
 .main-contacts span {
   display: block;
 }
-.reg .left,
-.reg .right {
-  font-size: 16px;
-  line-height: normal;
-  letter-spacing: normal;
-  background: red;
-  box-sizing: border-box;
-  display: table-cell;
-  padding: .5em 3em;
+
+
+/*
+|
+|
+|
+18.01.2015 - Scrollbar
+|
+|
+|
+*/
+select#registrationform-nomination_id {
+  position: absolute;
+  top: 0px;
+  opacity: 0;
 }
-.reg .left {
-  width: 30%;
-  border-right: 2px solid #fff;
-  overflow: hidden;
-  background: url('/img/i/bg-left.jpg') top right;
-}
-.reg .left .img {
-  overflow: hidden;
-  width: 80%;
-  height: 200px;
-  display: inline-block;
-}
-.reg .left .img img {
-  widrth: 100%;
-}
-.reg .right {
-  width: 70%;
-  background: #b4975a;
-  border-left: 2px solid #fff;
-}
-.reg .right p {
-  margin: 0 0 1em 0;
-  line-height: 1.5;
-}
-.reg .right .row p {
-  margin-top: -0.5em;
-  color: #ffffff;
-}
-.reg .big_y {
-  display: inline-block;
-  color: #fff;
-  font-size: 60px;
-  padding-bottom: 4px;
-  border-bottom: 1px dotted #fff;
-}
-.reg .reg {
-  position: relative;
-  background: #000;
-  border: none;
-  z-index: 10;
-  padding: .3em 1em;
-  margin: 2em 0;
-  color: #fff;
-  font-size: 18px;
-  box-shadow: 1px 1px 0px #444444, 2px 2px 0px #444444, 3px 3px 0px #444444, 4px 4px 0px #444444, 5px 5px 0px #444444, 6px 6px 0px #444444, 7px 7px 0px #444444, 8px 8px 0px #444444, 9px 9px 0px #444444, 10px 10px 0px #444444;
-}
-.reg .reg.inactive {
-  background: #CBCAC6;
-  color: #777;
-  box-shadow: 1px 1px 0px #CBCAC6,
-				2px 2px 0px #CBCAC6,
-				3px 3px 0px #CBCAC6, 
-				4px 4px 0px #CBCAC6, 
-				5px 5px 0px #CBCAC6, 
-				6px 6px 0px #CBCAC6, 
-				7px 7px 0px #CBCAC6, 
-				8px 8px 0px #CBCAC6, 
-				9px 9px 0px #CBCAC6, 
-				10px 10px 0px #CBCAC6;
-}
-.reg form {
-  padding: 1em 0;
-  font-size: 18px;
-  text-align: left;
-}
-.reg form [class^="col"] {
-  vertical-align: middle;
-  font-size: 18px;
-}
-.reg form input {
+.nomi_select .select {
   width: 100%;
-  border: none;
+  border: 1px solid #b4975a;
+  border-bottom: none;
   padding: 9px;
-  margin: 10px 0;
+  margin: 10px 0 0 0;
   vertical-align: middle;
-}
-.reg form .captcha {
-  margin-bottom: 16px;
-}
-.reg form .captcha input {
-  width: 100px;
-}
-.reg form .captcha * {
-  vertical-align: middle;
-}
-.reg form .cap_upd {
-  cursor: pointer;
-}
-.reg form .cap_upd span {
-  border-bottom: 1px dotted #444444;
-  margin: 4px;
-  font-size: 14px;
-}
-.reg input[type="checkbox"] {
-  display: none;
-}
-.reg input[type="checkbox"]:checked + label {
-  background: #ffffff url('/img/i/checked.png') no-repeat center;
-}
-.reg input[type="checkbox"] + label {
-  display: inline-block;
-  width: 24px;
-  height: 24px;
   background: #fff;
+  display: inline-block;
+  z-index: 25;
   cursor: pointer;
 }
+.nomi_select .select::after {
+  content: '';
+  position: absolute;
+  top: 28px;
+  right: 15px;
+  border: 8px solid transparent;
+  border-top: 8px solid #b4975a;
+  border-bottom: 0px;
+}
+.nomi_select .select.active::after {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.nomi_select .list {
+  background: #fff;
+  border: 1px solid #b4975a;
+  border-top: none;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  max-height: 250px;
+  position: absolute;
+  top: 53px;
+  left: 0;
+  right: 0;
+  z-index: 20;
+}
+.nomi_select .list ul {
+  list-style: none;
+}
+.nomi_select .list ul li {
+  padding: 10px;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.nomi_select .list ul li:hover {
+  background: #c4ad7d;
+}
+.nomi_select .list::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 16px;
+  background: -webkit-linear-gradient(to bottom, transparent, #ffffff);
+  background: -moz-linear-gradient(to bottom, transparent, #ffffff);
+  background: -o-linear-gradient(to bottom, transparent, #ffffff);
+  background: linear-gradient(to bottom, transparent, #ffffff);
+}
+
 .about {
   font-family: 'Carrois Gothic';
 }
@@ -1505,13 +1571,11 @@ a.brand {
   font-size: 12px;
   width: 60%;
 }
-.levels .level.current   {
+.levels .level:hover {
   background: #b4975a;
 }
-/*.levels .level:hover h2,*/
-.levels .level.current h2,
-/*.levels .level:hover .date,*/
-.levels .level.current .date {
+.levels .level:hover h2,
+.levels .level:hover .date {
   color: #fff;
 }
 .levels .disabled {
@@ -1740,3 +1804,31 @@ footer .copyright::before {
   display: block;
   content: '©';
 }
+
+
+/*#####################################################*/
+.has-error .control-label {
+  color: rgb(151, 0, 28);
+}
+.has-error .form-control {
+  background-color: rgba(255, 0, 47, 0.65);
+  color:#000;
+}
+.has-error .help-block {
+  color: rgb(151, 0, 28);
+  font-size: 12px;
+}
+
+/*#####################################################*/
+
+/*._mCS_1 .mCSB_dragger .mCSB_dragger_bar{ background-color: red; }*/
+
+/*._mCS_2 .mCSB_dragger .mCSB_dragger_bar{ background-color: green; }*/
+
+/*#mCSB_3_dragger_vertical .mCSB_dragger_bar{ background-color: blue; }*/
+
+/*#mCSB_1_scrollbar_vertical .mCSB_dragger{ height: 360px; }*/
+
+/*#mCSB_1_scrollbar_horizontal .mCSB_dragger{ width: 100px; }*/
+
+/*.mCSB_1_scrollbar .mCSB_dragger .mCSB_draggerRail{ width: 4px; }*/

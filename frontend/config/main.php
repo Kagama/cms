@@ -15,7 +15,7 @@ return [
     'defaultRoute' => 'main/default/index',
     'bootstrap' => ['gii'],
     'modules' => [
-        'gii' => 'yii\gii\Module',
+//        'gii' => 'yii\gii\Module',
         'post' => [
             'class' => 'frontend\modules\post\PostModule',
         ],
@@ -107,12 +107,12 @@ return [
             'basePath' => '@webroot/assets',
             'baseUrl' => '@web/assets',
             'bundles' => [
-                'yii\web\JqueryAsset' => [
-                    'sourcePath' => null,
-                    'js' => [
-                        'js/jquery-2.1.0.min.js'
-                    ],
-                ],
+//                'yii\web\JqueryAsset' => [
+//                    'sourcePath' => null,
+//                    'js' => [
+//                        'js/jquery-2.1.0.min.js'
+//                    ],
+//                ],
             ]
         ]
     ],

@@ -15,7 +15,8 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'username')->textInput(['maxlength' => 255]) ?>
-    <?= $form->field($model, 'email')->textInput(['maxlength' => 255]) ?>
+    <?= $form->field($model, 'password')->textInput() ?>
+<!--    --><?//= $form->field($model, 'email')->textInput(['maxlength' => 255]) ?>
 
     <?= $form->field($model, 'role_id')->dropDownList(\yii\helpers\ArrayHelper::map(\common\modules\user\models\UserRole::find()->all(), 'id', 'name'), ['prompt' => '---']) ?>
 
@@ -25,7 +26,9 @@ use yii\widgets\ActiveForm;
 
     <!--    --><? //= $form->field($model, 'updated_at')->textInput() ?>
 
-    <?= $form->field($model, 'approve_newsletter')->checkbox() ?>
+<!--    --><?//= $form->field($model, 'approve_newsletter')->checkbox() ?>
+
+
 
 
 

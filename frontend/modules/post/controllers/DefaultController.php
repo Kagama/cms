@@ -31,6 +31,8 @@ class DefaultController extends Controller
         $dataProvider = $searchModel->search(Yii::$app->request->getQueryParams());
         $dataProvider->query->andFilterWhere(['menu_id' => $menu->id]);
 
+        $dataProvider->query->addOrderBy('date DESC');
+
         if (Yii::$app->user->isGuest) {
             $dataProvider->query->andFilterWhere(['publish' => 1]);
         }

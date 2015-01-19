@@ -15,7 +15,8 @@ class DefaultController extends Controller
 {
     public function actionIndex()
     {
-        $juries = Jury::find()->all();
+        $juries = Jury::find()->orderBy('position ASC')->all();
+
         return $this->render('index', ['juries' => $juries]);
     }
 }

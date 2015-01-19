@@ -18,6 +18,17 @@ $route = Yii::$app->controller->getUniqueId();
             <a href="<?= Url::toRoute('/stage/default/index'); ?>"><i class="fa fa-flag-o"></i> <span
                     class="name">Этапы конкурса</span></a>
         </li>
+        <li class="<?= ($route == 'nomination/default' || $route == 'nomination/category') ? "active" : "panel"; ?>">
+            <a class="accordion-toggle collapsed" data-toggle="collapse"
+               data-parent="#side-nav" href="#nomitacia-collapse" ><i class="fa fa-bars"></i> <span
+                    class="name">Номинации</span></a>
+            <ul id="nomitacia-collapse" class="panel-collapse collapse">
+                <li><a href="<?= Url::toRoute('/nomination/default/index'); ?>""><i class="fa fa-bars"></i> <span class="name">Номинации</span></a>
+                </li>
+                <li><a href="<?= Url::toRoute('/nomination/category/index') ?>"><i class="fa fa-bars"></i> <span
+                            class="name">Категории</span></a></li>
+            </ul>
+        </li>
         <li class="<?= ($route == 'winners/default' ||  $route == 'winners/type') ? "active" : "panel"; ?>">
             <a class="accordion-toggle collapsed" data-toggle="collapse"
                data-parent="#side-nav" href="#winners-collapse" ><i class="fa fa-flag-o"></i> <span
