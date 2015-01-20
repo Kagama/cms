@@ -142,9 +142,11 @@ if (!empty($user) && $user->role->id == 1) {
                                 $ext = "";
                                 foreach ($menu as $_m) {
                                     if ($_m->name == "Регистрация") {
-                                        $ext = "extra";
+                                        echo Html::tag('li', Html::a($_m->name, '/?form=registration'), ['class' => (('/' . $_m->url == $url ? 'active' : (substr_count($url, $_m->url) > 0 ? 'active' : '')) . " extra")]);
+                                    }  else {
+                                        echo Html::tag('li', Html::a($_m->name, ['/' . $_m->url]), ['class' => (('/' . $_m->url == $url ? 'active' : (substr_count($url, $_m->url) > 0 ? 'active' : '')))]);
                                     }
-                                    echo Html::tag('li', Html::a($_m->name, ['/' . $_m->url]), ['class' => (('/' . $_m->url == $url ? 'active' : (substr_count($url, $_m->url) > 0 ? 'active' : '')) . " " . $ext)]);
+
                                 }
                                 ?>
                             </ul>

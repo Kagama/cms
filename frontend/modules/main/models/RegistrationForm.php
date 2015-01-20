@@ -9,7 +9,6 @@
 namespace frontend\modules\main\models;
 
 use common\modules\participant\models\ParticipantOfCompetition;
-use app\components\MyEmailValidator;
 use yii\base\Model;
 
 class RegistrationForm extends Model
@@ -50,41 +49,13 @@ class RegistrationForm extends Model
             [['phone'], 'match', 'pattern' => '/^(\+7|8)\s?\((\d{3}|\d{5})\)\s?(\d{5}|(\d{3}\s?\d{2}\s?\d{2}))$/i', 'message' => 'Пожалуйста, укажите номер телефона в формате +7 (495) 363 1111'],
             [['phone'], 'string', 'min' => 11, 'max' => 24],
 
-            [['email'], 'validateEmail', 'message' => 'Пожалуйста, укажите корректный e-mail в формате user@server.com'],
+            [['email'], 'email', 'pattern' => '/^[a-zA-Zа-яА-Я0-9!#$%&\'*+\\/=?^_`{|}~-]+(?:\.[a-zA-Zа-яА-Я0-9!#$%&\'*+\\/=?^_`{|}~-]+)*@(?:[a-zA-Zа-яА-Я0-9](?:[a-zA-Zа-яА-Я0-9-]*[a-zA-Zа-яА-Я0-9])?\.)+[a-zA-Zа-яА-Я0-9](?:[a-zA-Zа-яА-Я0-9-]*[a-zA-Zа-яА-Я0-9])?$/', 'fullPattern' => '/^[^@]*<[a-zA-Zа-яА-Я0-9!#$%&\'*+\\/=?^_`{|}~-]+(?:\.[a-zA-Zа-яА-Я0-9!#$%&\'*+\\/=?^_`{|}~-]+)*@(?:[a-zA-Zа-яА-Я0-9](?:[a-zA-Zа-яА-Я0-9-]*[a-zA-Zа-яА-Я0-9])?\.)+[a-zA-Zа-яА-Я0-9](?:[a-zA-Zа-яА-Я0-9-]*[a-zA-Zа-яА-Я0-9])?>$/', 'message' => 'Пожалуйста, укажите корректный e-mail в формате user@server.com'],
 
             ['verifyCode', 'captcha', 'captchaAction' => 'main/default/captcha'],
             ['email', 'unique', 'targetClass' => '\common\modules\participant\models\ParticipantOfCompetition', 'message' => 'Email адрес уже занят.'],
         ];
     }
 
-    public function validateEmail($attribute, $params)
-    {
-        $pattern = '/^[a-zA-Zа-яА-Я0-9!#$%&\'*+\\/=?^_`{|}~-]+(?:\.[a-zA-Zа-яА-Я0-9!#$%&\'*+\\/=?^_`{|}~-]+)*@(?:[a-zA-Zа-яА-Я0-9](?:[a-zA-Zа-яА-Я0-9-]*[a-zA-Zа-яА-Я0-9])?\.)+[a-zA-Zа-яА-Я0-9](?:[a-zA-Zа-яА-Я0-9-]*[a-zA-Zа-яА-Я0-9])?$/';
-        $fullPattern = '/^[^@]*<[a-zA-Zа-яА-Я0-9!#$%&\'*+\\/=?^_`{|}~-]+(?:\.[a-zA-Zа-яА-Я0-9!#$%&\'*+\\/=?^_`{|}~-]+)*@(?:[a-zA-Zа-яА-Я0-9](?:[a-zA-Zа-яА-Я0-9-]*[a-zA-Zа-яА-Я0-9])?\.)+[a-zA-Zа-яА-Я0-9](?:[a-zA-Zа-яА-Я0-9-]*[a-zA-Zа-яА-Я0-9])?>$/';
-
-        $allowName = false;
-        $checkDNS = false;
-        $enableIDN = false;
-
-        $value = $this->$attribute;
-
-        if (!is_string($value) || strlen($value) >= 320) {
-            $valid = false;
-        } elseif (!preg_match('/^(.*<?)(.*)@(.*)(>?)$/', $value, $matches)) {
-            $valid = false;
-        } else {
-            $domain = $matches[3];
-            if ($enableIDN) {
-                $value = $matches[1] . idn_to_ascii($matches[2]) . '@' . idn_to_ascii($domain) . $matches[4];
-            }
-            $valid = preg_match($pattern, $value) || $allowName && preg_match($fullPattern, $value);
-            if ($valid && $checkDNS) {
-                $valid = checkdnsrr($domain, 'MX') || checkdnsrr($domain, 'A');
-            }
-        }
-        return $valid ? null : [$this->message, []];
-
-    }
 
     /**
      * @inheritdoc
