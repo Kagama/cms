@@ -35,6 +35,7 @@ class Stage extends \yii\db\ActiveRecord
             [['number', 'title', 'date'], 'required'],
             [['number', 'current_stage', 'past_stage'], 'integer'],
             [['title', 'url', 'note'], 'string', 'max' => 512],
+            [['url'], 'url'],
             [['date'], 'string', 'max' => 254]
         ];
     }
@@ -58,13 +59,10 @@ class Stage extends \yii\db\ActiveRecord
 
     public function afterSave($insert, $changedAttr)
     {
-        if (isset($changedAttr['current_stage'])) {
+        if ($this->current_stage == 1) {
             Stage::updateAll(['current_stage' => 0]);
-            if ($this->current_stage == 1) {
-                Stage::updateAll(['current_stage' => 1], 'id = '.$this->getPrimaryKey());
-            }
+            Stage::updateAll(['current_stage' => 1], 'id = ' . $this->getPrimaryKey());
         }
-
         return parent::afterSave($insert, $changedAttr);
     }
 }

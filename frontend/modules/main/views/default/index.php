@@ -102,7 +102,7 @@ Yii::$app->view->registerMetaTag(['name' => 'description', 'content' => Yii::$ap
 <section class="levels">
     <div class="container">
 
-        <h1>Этапы 2014</h1>
+        <h1>Этапы 2015</h1>
 
         <div class="row">
             <?php
@@ -114,7 +114,7 @@ Yii::$app->view->registerMetaTag(['name' => 'description', 'content' => Yii::$ap
                     class="col-xs-6 col-sm-4 col-md-3 level <?= $stage->past_stage == 1 ? "disabled" : "" ?> <?= $stage->current_stage == 1 ? "current" : "" ?>">
                     <h2><?= $stage->number ?></h2>
                     <span class="date <?= (count($stages) == ($index + 1) ? "t-g" : "") ?>"><?= $stage->date ?></span>
-                    <a class="title"><?= $stage->title ?></a>
+                    <?=Html::a($stage->title, (($stage->url != "") ? $stage->url : null), ['class' => 'title'])?>
                     <span class="stat"><?= ($stage->past_stage == 1 ? "Этап завершен" : $stage->note) ?></span>
                 </div>
             <?php

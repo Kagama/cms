@@ -40,7 +40,7 @@ class DefaultController extends Controller
         $dataProvider->pagination->pageSize = 10000;
 
 
-        return $this->render('all', ['dataProvider' => $dataProvider, 'menu' => $menu]);
+        return $this->render('index', ['dataProvider' => $dataProvider, 'menu' => $menu]);
     }
 
     public function actionShow($menu_alt_name, $id_alt_title)
