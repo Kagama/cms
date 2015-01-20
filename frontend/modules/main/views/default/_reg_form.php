@@ -42,15 +42,6 @@ if ($emailSendError) {
             '
 ])->textInput()?>
 
-<?=$form->field($regForm, 'company_name', [
-    'template' => '
-                <div class="row">
-                    <div class="col-md-4">{label}</div>
-                    <div class="col-md-8">{input}{error}
-                    {hint}</div>
-                </div>
-            '
-])->textInput()?>
 
 <?//=$form->field($regForm, 'nomination_id', [
 //    'template' => '
@@ -172,7 +163,6 @@ if ($emailSendError) {
 
     <div class="row">
         <div class="col-md-4"><button class="reg inactive">Зарегистрироваться</button></div>
-        <div class="col-md-8">Осталось заполнить поля: <span id="fields"></span></div>
     </div>
     <!--        </form>-->
 <?php ActiveForm::end(); ?>

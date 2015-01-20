@@ -168,7 +168,7 @@ if (!empty($user) && $user->role->id == 1) {
 <footer>
     <div class="container">
         <div class="copyright">
-            <p>РосБизнесКонсалтинг,<br>1995—2014</p>
+            <p>РосБизнесКонсалтинг,<br>2014—2015</p>
         </div>
         <div class="copyright">
             <p>Effie Awards Russia</p>

@@ -18,7 +18,7 @@ Yii::$app->view->registerMetaTag(['name' => 'description', 'content' => $menu->s
 <section class="about">
 <div class="container">
 	<?=\common\modules\contentBlock\widget\ContentBlockWidget::widget([
-        'id' => 3
+        'id' => 12
     ]);?>
 </div>
 </section><section class="levels">

@@ -2,7 +2,6 @@
 <br />
 <p><strong>Участвовать в семинаре:</strong> <?=$participant->seminar ? "Да" : "Нет"?></p>
 <p><strong>Название брэнда:</strong> <?=$participant->brand_name?></p>
-<p><strong>Название компании:</strong> <?=$participant->company_name?></p>
 <p><strong>Имя:</strong> <?=$participant->first_name?></p>
 <p><strong>Фамилия:</strong> <?=$participant->last_name?></p>
 <p><strong>Должность:</strong> <?=$participant->job?></p>

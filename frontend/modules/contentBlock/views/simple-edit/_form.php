@@ -27,15 +27,21 @@ use yii\widgets\ActiveForm;
             'debug' => 'true',
         ],
         'clientOptions' => [ // [More about settings](http://imperavi.com/redactor/docs/settings/)
-            'pathCss' => Yii::getAlias('@frontend/web/css/'),
-            'css' => ['style.css'],
-            'convertImageLinks' => 'true', //By default
-            'convertVideoLinks' => 'true', //By default
+            'convertImageLinks' => 'false', //By default
+            'convertVideoLinks' => 'false', //By default
             'buttonSource' => true,
             //'wym' => 'true',
             //'air' => 'true',
             'linkEmail' => 'true', //By default
             'lang' => 'ru',
+            'tidyHtml' => true,
+            'allowedTags' => ['p', 'blockquote', 'b', 'strong', 'i', 'ul', 'li', 'ol', 'a', 'div', 'span', 'bold', 'table', 'tr', 'td', 'thead', 'tbody', 'tfoot', 'img', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+            'phpTags' => true,
+            'pastePlainText' => false,
+            'replaceDivs' => false,
+            'paragraphy' => false,
+            'convertDivs' => false,
+            'deniedTags' => false,
 //            'imageGetJson' =>  \Yii::getAlias('@web').'/redactor/upload/imagejson', //By default
             'plugins' => [ // [More about plugins](http://imperavi.com/redactor/plugins/)
                 'ace',
