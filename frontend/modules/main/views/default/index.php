@@ -142,11 +142,13 @@ Yii::$app->view->registerMetaTag(['name' => 'description', 'content' => Yii::$ap
                 foreach ($juryArr as $_jury) {
                     ?>
                     <div class="col-xs-6 cols-sm-4 col-md-3 item">
+                        <a href="<?=\yii\helpers\Url::to(['/jury', '#' => \common\helpers\CString::translitTo($_jury->flp)])?>" style="color:#000;">
                         <?= Html::img("/" . $_jury->img, ['alt' => $_jury->flp]) ?>
                         <?php
                         $flpExplode = explode(" ", $_jury->flp);
                         echo "<span>" . implode("</span><span>", $flpExplode) . "</span>";
                         ?>
+                        </a>
                     </div>
                 <?php
                 }

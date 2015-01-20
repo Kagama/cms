@@ -1571,11 +1571,14 @@ select#registrationform-nomination_id {
   font-size: 12px;
   width: 60%;
 }
-.levels .level:hover {
+.levels .level:hover,
+.levels .level.current {
   background: #b4975a;
 }
 .levels .level:hover h2,
-.levels .level:hover .date {
+.levels .level:hover .date ,
+.levels .level.current h2,
+.levels .level.current .date{
   color: #fff;
 }
 .levels .disabled {

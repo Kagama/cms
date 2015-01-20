@@ -35,11 +35,11 @@ use yii\widgets\ActiveForm;
             'linkEmail' => 'true', //By default
             'lang' => 'ru',
             'tidyHtml' => true,
+            'paragraphize' => false,
             'allowedTags' => ['p', 'blockquote', 'b', 'strong', 'i', 'ul', 'li', 'ol', 'a', 'div', 'span', 'bold', 'table', 'tr', 'td', 'thead', 'tbody', 'tfoot', 'img', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
             'phpTags' => true,
             'pastePlainText' => false,
             'replaceDivs' => false,
-            'paragraphy' => false,
             'convertDivs' => false,
             'deniedTags' => false,
 //            'imageGetJson' =>  \Yii::getAlias('@web').'/redactor/upload/imagejson', //By default

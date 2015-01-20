@@ -4,6 +4,7 @@
         foreach ($juries as $_jury) {
             ?>
             <div class="member">
+                <a name="<?=\common\helpers\CString::translitTo($_jury->flp)?>"></a>
                 <div class="row">
                     <div class="col-md-3">
                         <?=\yii\helpers\Html::img("/".$_jury->img, ['alt' => $_jury->flp])?>

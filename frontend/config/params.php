@@ -1,7 +1,7 @@
 <?php
 return [
     'adminEmail' => 'admin@example.com',
-    'seo_title' => 'Kagama CMS для РБК',
-    'seo_keywords' => 'Kagama CMS для РБК',
-    'seo_description' => 'Kagama CMS для РБК'
+    'seo_title' => 'Брэнд года Effie Awards Russia- РБК',
+    'seo_keywords' => 'Брэнд года Effie Awards Russia - РБК',
+    'seo_description' => 'Брэнд года Effie Awards Russia - РБК'
 ];
